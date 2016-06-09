@@ -1,0 +1,18 @@
+<div class="container">
+
+  <div>
+    <acme-navbar></acme-navbar>
+  </div>
+  <div class="row">
+    <div ng-repeat="restaurant in main.restaurants | filter:{venue: {name: nameFilter}}| filter:{venue: {categories:{name:categoryFilter}}}">
+      <div class="clearfix" ng-if="$index % 4== 0"></div>
+      <div class="col-sm-3">
+        <restaurant-smalldescription restaurantdata="restaurant"></restaurant-smalldescription>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+</div>
