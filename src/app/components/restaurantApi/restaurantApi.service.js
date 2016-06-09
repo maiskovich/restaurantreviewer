@@ -1,6 +1,6 @@
 var requestParms = {
-  clientId: "2NVEZVMEPV4WLS3QQ0DJFWLR1PJAXBQTKREYXTNYIJBDNEYP",
-  clientSecret: "4TK0IYB4W4BE0PJQPLEG5C5C1EUCXTNNQGISN1EWEF2DRCAV",
+  clientId: "IY5CSJJK20BYPPSSKHFEXE45D2HNG5GMHO3VGAOSPYB5MVKB",
+  clientSecret: "Z2D4LBTLPZ5UR1ZDFGYCL1ALFJNP5QZ5Y33ERG0FLSDNM30M",
   version: "20131230"
 }
 export class RestaurantApiService {
@@ -10,7 +10,7 @@ export class RestaurantApiService {
   }
 
   getRestaurants(location) {
-    var requestUri = 'https://api.foursquare.com/v2/venues/:action';
+    let requestUri = 'https://api.foursquare.com/v2/venues/:action';
     return this.$resource(requestUri,
       {
         action: 'explore',
@@ -18,7 +18,10 @@ export class RestaurantApiService {
         client_secret: requestParms.clientSecret,
         v: requestParms.version,
         ll:(location.latitude+','+location.longitude),
+        sortByDistance:1,
+        limit:30,
         venuePhotos: '1',
+        intent:'food',
         callback: 'JSON_CALLBACK'
       },
       {
