@@ -28,4 +28,18 @@ export class RestaurantApiService {
         get: {method: 'JSONP'}
       });
   }
+  getRestaurantDetails(venueID){
+    let requestUri = 'https://api.foursquare.com/v2/venues/:VENUE_ID';
+    return this.$resource(requestUri,
+      {
+        VENUE_ID: venueID,
+        client_id: requestParms.clientId,
+        client_secret: requestParms.clientSecret,
+        v: requestParms.version,
+        callback: 'JSON_CALLBACK'
+      },
+      {
+        get: {method: 'JSONP'}
+      });
+  }
 }
