@@ -9,11 +9,12 @@ import { GithubContributorService } from '../app/components/githubContributor/gi
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { RestaurantApiService } from '../app/components/restaurantApi/restaurantApi.service';
 import { LocationApiService } from '../app/components/locationApi/locationApi.service';
+import { DatabaseApiService } from '../app/components/databaseApi/databaseApi.service';
 import { RestaurantSmallDescriptionDirective } from '../app/components/restaurantSmallDescription/restaurantSmallDescription.directive';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 
-angular.module('restaurantreviewer', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap','ui.bootstrap.rating','ui.bootstrap.tpls','ui.bootstrap.carousel','angular.filter', 'toastr'])
+angular.module('restaurantreviewer', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap','ui.bootstrap.rating','ui.bootstrap.tpls','ui.bootstrap.carousel','angular.filter', 'firebase'])
   .constant('malarkey', malarkey)
   .constant('moment', moment)
   .config(config)
@@ -23,6 +24,7 @@ angular.module('restaurantreviewer', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSa
   .service('webDevTec', WebDevTecService)
   .service('restaurantApi', RestaurantApiService)
   .service('locationApi', LocationApiService)
+  .service('databaseApi', DatabaseApiService)
   .controller('MainController', MainController)
   .controller('RestaurantController', RestaurantController)
   .directive('restaurantSmalldescription',RestaurantSmallDescriptionDirective)

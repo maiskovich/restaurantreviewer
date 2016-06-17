@@ -14,11 +14,10 @@
               <input ng-model="openFilter" type="checkbox" value="true"> Open now
             </label>
           </div>
-          <datalist id="categories">
-            <select>
+            <datalist id="categories">
             <option ng-repeat="restaurant in main.restaurants | unique: 'venue.categories[0].name'" value="{{restaurant.venue.categories[0].name}}">
-            </select>
-          </datalist>
+            </datalist>
+
         </div>
       </form>
 
