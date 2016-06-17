@@ -13,7 +13,7 @@ import { RestaurantSmallDescriptionDirective } from '../app/components/restauran
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 
-angular.module('restaurantreviewer', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap','ui.bootstrap.rating','ui.bootstrap.tpls','angular.filter', 'toastr'])
+angular.module('restaurantreviewer', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap','ui.bootstrap.rating','ui.bootstrap.tpls','ui.bootstrap.carousel','angular.filter', 'toastr'])
   .constant('malarkey', malarkey)
   .constant('moment', moment)
   .config(config)

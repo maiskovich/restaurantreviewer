@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>{{restaurant.restaurantDetails.name}}</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <rating ng-model="restaurant.restaurantDetails.rating" data-readonly="true" max="10"  aria-labelledby="default-rating"></rating>
+        <address>
+          {{restaurant.restaurantDetails.location.address}}, {{restaurant.restaurantDetails.location.crossStreet}}<br>
+          {{restaurant.restaurantDetails.location.city}}<br>
+          <abbr title="Phone">P:</abbr> <a href="tel:{{restaurant.restaurantDetails.contact.phone}}">
+                                          {{restaurant.restaurantDetails.contact.formattedPhone}}
+                                        </a>
+        </address>
+        <div class="panel panel-default" ng-repeat="tip in restaurant.restaurantDetails.tips.groups[0].items.slice(((restaurant.currentPage-1)*restaurant.itemsPerPage), ((restaurant.currentPage)*restaurant.itemsPerPage))">
+          <div class="panel-heading">{{tip.user.firstName}} {{tip.user.lastName}}</div>
+          <div class="panel-body">
+            {{tip.text}}
+          </div>
+        </div>
+        <pagination total-items="restaurant.totalItems" ng-model="restaurant.currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="restaurant.itemsPerPage"></pagination>
+      </div>
+      <div class="col-md-4 col-md-offset-4">
+        <carousel interval="3000">
+          <slide ng-repeat="slide in restaurant.restaurantDetails.photos.groups[0].items" >
+            <img ng-src="{{slide.prefix}}400x400{{slide.suffix}}" style="margin:auto;">
+          </slide>
+        </carousel>
+      </div>
+    </div>
+
+  </div>
+  </div>

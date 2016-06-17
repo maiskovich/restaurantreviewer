@@ -2,6 +2,6 @@
   <div class="panel-body">
     <img ng-src="{{restaurantdata.venue.photos.groups[0].items[0].prefix+'300x300'+restaurantdata.venue.photos.groups[0].items[0].suffix}}"  class="img-responsive">
   </div>
-  <div class="panel-footer">{{restaurantdata.venue.name}}<br> <rating ng-model="restaurantdata.venue.rating" max="10"  aria-labelledby="default-rating"></rating></div>
+  <div class="panel-footer">{{restaurantdata.venue.name}}<br> <rating ng-model="restaurantdata.venue.rating" data-readonly="true" max="10"  aria-labelledby="default-rating"></rating></div>
 </div>
 
