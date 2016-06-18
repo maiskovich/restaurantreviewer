@@ -26,6 +26,10 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
     width: 50px;
   }
 }
+.form-group.required .control-label:after {
+  content: "*";
+  color: red;
+}
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject

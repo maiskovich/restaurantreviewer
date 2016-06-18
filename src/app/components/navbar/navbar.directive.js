@@ -3,6 +3,9 @@ export function NavbarDirective() {
 
   let directive = {
     restrict: 'E',
+    scope: {
+      mainpage: '='
+    },
     templateUrl: 'app/components/navbar/navbar.html'
   };
 

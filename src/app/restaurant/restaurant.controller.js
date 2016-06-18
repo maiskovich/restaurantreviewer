@@ -11,24 +11,24 @@ export class RestaurantController {
   }
   getRestaurantDetails(){
       this.restaurantApi.getRestaurantDetails(this.restaurantID).get().$promise.then((data)=> {
-        console.log(data);
         this.restaurantDetails=data.response.venue;
         let functionScope=this;
-        this.rating=this.restaurantDetails.rating;
+        let dataBaseRating=0;
+        let dataBaseNumberRating=0;
         let databaseMessages=this.databaseApi.readDatabase();
         databaseMessages.$loaded()
           .then((messages) =>{
             let messagesRestaurant=messages.filter((message) => message.restaurantID == this.restaurantID);
-            console.log(messagesRestaurant);
             angular.forEach(messagesRestaurant, function(message) {
               functionScope.restaurantDetails.tips.groups[0].items.unshift({
                 rating: message.rating,
                 firstName:message.user,
                 text: message.review
               });
-
+              dataBaseRating+=message.rating;
+              dataBaseNumberRating++;
             });
-            console.log(functionScope.restaurantDetails.tips.groups[0].items);
+            this.rating=((this.restaurantDetails.rating*this.restaurantDetails.ratingSignals)+dataBaseRating)/(this.restaurantDetails.ratingSignals+dataBaseNumberRating);
             this.totalItems=this.restaurantDetails.tips.groups[0].items.length;
           });
 
@@ -42,6 +42,8 @@ export class RestaurantController {
     data.author=this.author;
     this.databaseApi.addReview(data);
     this.writeReview=false;
+    this.review='';
+    this.author='';
     this.getRestaurantDetails();
   }
 

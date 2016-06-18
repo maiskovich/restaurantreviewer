@@ -1,7 +1,7 @@
 <div class="container">
 
   <div>
-    <acme-navbar></acme-navbar>
+    <acme-navbar mainpage="true"></acme-navbar>
   </div>
   <div class="row">
     <div ng-repeat="restaurant in main.restaurants | filter:{venue: {name: nameFilter}}| filter:{venue: {categories:{name:categoryFilter}}}| filter: (openFilter || '') && {venue: {hours:{isOpen:openFilter}}}">
