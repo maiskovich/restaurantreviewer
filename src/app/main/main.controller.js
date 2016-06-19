@@ -1,10 +1,11 @@
 export class MainController {
-  constructor (locationApi,restaurantApi,databaseApi) {
+  constructor (locationApi,restaurantApi,databaseApi,$scope) {
     'ngInject';
     this.locationApi=locationApi;
     this.restaurantApi=restaurantApi;
     this.databaseApi=databaseApi;
     this.getRestaurants();
+    this.mainpage=true;
 
   }
   getRestaurants(){
@@ -16,6 +17,7 @@ export class MainController {
       this.restaurantApi.getRestaurants(location.coords).get().$promise.then((data)=> {
         //Set the restaurants to the view
         this.restaurants=data.response.groups[0].items;
+        console.log(this.restaurants);
         //When the database is loaded, we check if there is any review for the restaurants we got from the restaurant api
         databaseReviews.$loaded()
           .then((reviews) =>{
@@ -43,7 +45,7 @@ export class MainController {
             });
 
           });
-        
+
       });
     });
   }
