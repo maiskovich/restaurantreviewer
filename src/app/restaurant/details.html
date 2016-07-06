@@ -1,8 +1,9 @@
+<header><acme-navbar></acme-navbar></header>
+<main>
 <div class="container">
-  <acme-navbar></acme-navbar>
   <div class="jumbotron">
     <h1>{{restaurant.restaurantDetails.name}}</h1>
-    <rating ng-model="restaurant.rating" data-readonly="true" max="10"  aria-labelledby="default-rating"></rating>
+    <rating-radio ratingvalue="restaurant.rating" readonly="true"></rating-radio>
     <address>
       {{restaurant.restaurantDetails.location.address}}, {{restaurant.restaurantDetails.location.crossStreet}}<br>
       {{restaurant.restaurantDetails.location.city}}<br>
@@ -37,7 +38,7 @@
 
       <div class="form-group required">
         <label for="inputRating" class="control-label">Rating</label><br>
-        <rating ng-model="restaurant.rating" id="inputRating" max="10" style="color:#286090"  aria-labelledby="default-rating"></rating>
+        <rating-radio ng-model="restaurant.ratingNew" ratingvalue="restaurant.ratingNew" id="inputRating"></rating-radio>
       </div>
       <div class="form-group required">
       <label for="inputAuthor" class="control-label">Name</label>
@@ -47,8 +48,9 @@
       <label for="inputReview" class="control-label">Review</label>
       <textarea ng-model="restaurant.review" class="form-control" id="inputReview" placeholder="Review" required></textarea>
     </div>
-      <input type="submit" class="btn btn-primary btn-lg btn-block"
-             ng-disabled="reviewForm.$invalid || !reviewForm.$dirty" value="Submit">
+      <button type="submit" class="btn btn-primary btn-lg btn-block"
+             ng-disabled="reviewForm.$invalid || !reviewForm.$dirty">Submit</button>
     </form>
   </div>
   </div>
+</main>

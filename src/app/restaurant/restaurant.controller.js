@@ -37,7 +37,7 @@ export class RestaurantController {
   addRestaurantReview(){
     let data=new Array();
     data.restaurantID=this.restaurantID;
-    data.rating=this.rating;
+    data.rating=this.ratingNew;
     data.review=this.review;
     data.author=this.author;
     this.databaseApi.addReview(data);

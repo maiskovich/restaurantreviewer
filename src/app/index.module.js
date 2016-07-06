@@ -11,6 +11,7 @@ import { RestaurantApiService } from '../app/components/restaurantApi/restaurant
 import { LocationApiService } from '../app/components/locationApi/locationApi.service';
 import { DatabaseApiService } from '../app/components/databaseApi/databaseApi.service';
 import { RestaurantSmallDescriptionDirective } from '../app/components/restaurantSmallDescription/restaurantSmallDescription.directive';
+import { RatingRadioDirective } from '../app/components/ratingRadio/ratingRadio.directive';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 
@@ -28,5 +29,6 @@ angular.module('restaurantreviewer', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSa
   .controller('MainController', MainController)
   .controller('RestaurantController', RestaurantController)
   .directive('restaurantSmalldescription',RestaurantSmallDescriptionDirective)
+  .directive('ratingRadio', RatingRadioDirective)
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective);

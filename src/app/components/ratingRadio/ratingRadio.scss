@@ -1,0 +1,38 @@
+.ratingRadio {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  width: 8em;
+  display: inline;
+}
+
+.ratingRadio input {
+  position: absolute;
+  left: -999999px;
+}
+
+.ratingRadio label {
+  display: inline-block;
+  font-size: 0;
+}
+
+.ratingRadio > label:before {
+  position: relative;
+  font: 24px/1 FontAwesome;
+  display: block;
+  content: "\f005";
+  color: #ccc;
+  background: -webkit-linear-gradient(-45deg, #d9d9d9 0%, #b3b3b3 100%);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+}
+
+.ratingRadio > label:not(.ratingReadonly):hover:before,
+.ratingRadio > label:not(.ratingReadonly):hover ~ label:before,
+.ratingRadio > label.selected:before,
+.ratingRadio > label.selected ~ label:before {
+  color: #f0ad4e;
+  background: -webkit-linear-gradient(-45deg, #fcb551 0%, #d69a45 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+

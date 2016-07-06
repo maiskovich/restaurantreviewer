@@ -7,20 +7,20 @@
       </ul>
       <form class="navbar-form navbar-left" ng-show="main.mainpage" role="search">
         <div class="form-group">
-          <input ng-model="nameFilter" type="text" class="form-control" placeholder="Name">
-          <input ng-model="categoryFilter" type="text" class="form-control" placeholder="Category" list="categories">
+          <input ng-model="nameFilter" type="text" class="form-control" placeholder="Name" aria-label="Filter by name of the restaurants">
+          <select ng-model="categoryFilter" class="form-control" aria-label="Filter by category of the restaurants">
+            <option></option>
+            <option ng-repeat="restaurant in main.restaurants | unique: 'venue.categories[0].name'" value="{{restaurant.venue.categories[0].name}}">{{restaurant.venue.categories[0].name}}</option>
+            </select>
           <div class="checkbox">
             <label>
               <input ng-model="openFilter" type="checkbox" value="true"> Open now
             </label>
           </div>
-            <datalist id="categories">
-            <option ng-repeat="restaurant in main.restaurants | unique: 'venue.categories[0].name'" value="{{restaurant.venue.categories[0].name}}">
-            </datalist>
 
         </div>
       </form>
-      <a ui-sref="home"><div id="restaurantReviewerLogo"></div></a>
+      <a ui-sref="home"><img src="assets/images/pizza.png" id="restaurantReviewerLogo" alt="Restaurant reviewer"></a>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
