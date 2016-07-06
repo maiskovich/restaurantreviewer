@@ -14,13 +14,11 @@ export class DatabaseApiService {
   }
   addReview(data) {
     let database=this.readDatabase();
-    console.log(data);
     database.$add({
       restaurantID: data.restaurantID,
       rating:data.rating,
       user:data.author,
-      review:data.review,
-
+      review:data.review
     });
   }
 

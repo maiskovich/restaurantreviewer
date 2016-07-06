@@ -2,18 +2,22 @@
 <main>
 <div class="container">
   <div class="jumbotron">
-    <h1>{{restaurant.restaurantDetails.name}}</h1>
-    <rating-radio ratingvalue="restaurant.rating" readonly="true"></rating-radio>
+    <h1 tabindex="0">{{restaurant.restaurantDetails.name}}</h1>
+    <rating-radio ratingvalue="restaurant.rating" readonly="true" tabindex="0"></rating-radio>
+    <div class="sectionhead" tabindex="0">
+      <h2>Address:</h2>
     <address>
       {{restaurant.restaurantDetails.location.address}}, {{restaurant.restaurantDetails.location.crossStreet}}<br>
       {{restaurant.restaurantDetails.location.city}}<br>
-      <abbr title="Phone">P:</abbr> <a href="tel:{{restaurant.restaurantDetails.contact.phone}}">
-      {{restaurant.restaurantDetails.contact.formattedPhone}}
-    </a>
+      <abbr aria-label="Phone" title="Phone">P:</abbr>
+      <a class="phoneNumber" href="tel:{{restaurant.restaurantDetails.contact.phone}}">
+        {{restaurant.restaurantDetails.contact.formattedPhone}}
+      </a>
     </address>
+    </div>
     <div class="row">
       <div class="col-md-8">
-        <div ng-repeat="tip in restaurant.restaurantDetails.tips.groups[0].items.slice(((restaurant.currentPage-1)*restaurant.itemsPerPage), ((restaurant.currentPage)*restaurant.itemsPerPage))">
+        <div ng-repeat="tip in restaurant.restaurantDetails.tips.groups[0].items.slice(((restaurant.currentPage-1)*restaurant.itemsPerPage), ((restaurant.currentPage)*restaurant.itemsPerPage))" tabindex="0">
           <div class="clearfix" ng-if="$index % 2== 0"></div>
           <div class="panel panel-default">
           <div class="panel-heading">{{tip.user.firstName}}{{tip.firstName}} {{tip.user.lastName}}</div>
@@ -26,8 +30,8 @@
       </div>
       <div class="col-md-4">
         <carousel interval="3000">
-          <slide ng-repeat="slide in restaurant.restaurantDetails.photos.groups[0].items" >
-            <img ng-src="{{slide.prefix}}400x400{{slide.suffix}}" style="margin:auto;">
+          <slide ng-repeat="slide in restaurant.restaurantDetails.photos.groups[0].items">
+            <img ng-src="{{slide.prefix}}400x400{{slide.suffix}}" alt="Image of {{restaurant.restaurantDetails.name}}" style="margin:auto;">
           </slide>
         </carousel>
       </div>

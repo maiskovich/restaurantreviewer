@@ -1,17 +1,18 @@
-<div class="ratingRadio">
-  <label ng-class="{'selected':(ratingvalue/2)>4,'ratingReadonly':readonly}" ng-click="!readonly && setRating(10)">
-    <input type="radio" ng-if="!readonly" name="rating" value="5" title="5 stars"> 5
+
+<div class="ratingRadio" aria-label="The rating of the restaurant is {{ratingvalue/2 | number:1}} of 5">
+  <label tabindex="{{readonly ? '-1' : '0'}}" ng-class="{'selected':(ratingvalue/2)>4,'ratingReadonly':readonly}" ng-click="!readonly && setRating(10)">
+    <input type="radio" ng-if="!readonly" name="rating" value="5" title="5 stars" tabindex="-1"> 5
   </label>
-  <label ng-class="{'selected':(ratingvalue/2)>3,'ratingReadonly':readonly}" ng-click="!readonly && setRating(8)">
+  <label tabindex="{{readonly ? '-1' : '0'}}" ng-class="{'selected':(ratingvalue/2)>3,'ratingReadonly':readonly}" ng-click="!readonly && setRating(8)">
     <input type="radio" ng-if="!readonly" name="rating" value="4" title="4 stars"> 4
   </label>
-  <label ng-class="{'selected':(ratingvalue/2)>2,'ratingReadonly':readonly}" ng-click="!readonly && setRating(6)">
+  <label tabindex="{{readonly ? '-1' : '0'}}" ng-class="{'selected':(ratingvalue/2)>2,'ratingReadonly':readonly}" ng-click="!readonly && setRating(6)">
     <input type="radio" ng-if="!readonly" name="rating" value="3" title="3 stars"> 3
   </label>
-  <label ng-class="{'selected':(ratingvalue/2)>1,'ratingReadonly':readonly}" ng-click="!readonly && setRating(4)">
+  <label tabindex="{{readonly ? '-1' : '0'}}" ng-class="{'selected':(ratingvalue/2)>1,'ratingReadonly':readonly}" ng-click="!readonly && setRating(4)">
     <input type="radio" ng-if="!readonly" name="rating" value="2" title="2 stars"> 2
   </label>
-  <label ng-class="{'selected':(ratingvalue/2)>0,'ratingReadonly':readonly}" ng-click="!readonly && setRating(2)">
+  <label tabindex="{{readonly ? '-1' : '0'}}" ng-class="{'selected':(ratingvalue/2)>0,'ratingReadonly':readonly}" ng-click="!readonly && setRating(2)">
     <input type="radio" ng-if="!readonly" name="rating" value="1" title="1 star"> 1
   </label>
 </div>

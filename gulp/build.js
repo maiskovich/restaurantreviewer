@@ -49,8 +49,8 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(jsFilter.restore)
     .pipe(cssFilter)
     .pipe($.sourcemaps.init())
+    .pipe($.replace('../../bower_components/font-awesome/fonts/', '../fonts/'))
     .pipe($.replace('../../bower_components/bootstrap-sass/assets/fonts/bootstrap/', '../fonts/'))
-    .pipe($.replace('../../bower_components/font-awesome/fonts', '../fonts'))
     .pipe($.minifyCss({ processImport: false }))
     .pipe($.sourcemaps.write('maps'))
     .pipe(cssFilter.restore)
@@ -73,8 +73,14 @@ gulp.task('html', ['inject', 'partials'], function () {
 // Custom fonts are handled by the "other" task
 gulp.task('fonts', function () {
   return gulp.src($.mainBowerFiles())
-    .pipe($.filter('**/*.{eot,svg,ttf,woff,woff2}'))
+    .pipe($.filter('*.{eot,svg,ttf,woff,woff2}'))
     .pipe($.flatten())
+    .pipe(gulp.dest(path.join(conf.paths.dist, '/fonts/')));
+});
+
+// Adds font awesome fonts to fonts folder
+gulp.task('fontsAwesome', function () {
+   gulp.src('bower_components/font-awesome/fonts/**/*.{ttf,woff,woff2,eof,svg}')
     .pipe(gulp.dest(path.join(conf.paths.dist, '/fonts/')));
 });
 
@@ -95,4 +101,4 @@ gulp.task('clean', function () {
   return $.del([path.join(conf.paths.dist, '/'), path.join(conf.paths.tmp, '/')]);
 });
 
-gulp.task('build', ['html', 'fonts', 'other']);
+gulp.task('build', ['html', 'fonts', 'other','fontsAwesome']);

@@ -32,6 +32,11 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
   content: "*";
   color: red;
 }
+.panel-footer,.phoneNumber{
+  color: rgb(0, 87, 140);
+  opacity: 1;
+  background: rgb(245, 245, 245);
+}
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
