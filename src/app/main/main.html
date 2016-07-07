@@ -1,6 +1,5 @@
 <header><acme-navbar></acme-navbar></header>
-<main>
-<div class="container">
+<main class="container">
   <div class="row">
     <h2 style="display: none">Restaurants</h2>
     <div ng-repeat="restaurant in main.restaurants | filter:{venue: {name: nameFilter}}| filter:{venue: {categories:{name:categoryFilter}}}| filter: (openFilter || '') && {venue: {hours:{isOpen:openFilter}}}">
@@ -14,6 +13,4 @@
 
 
 
-
-</div>
 </main>

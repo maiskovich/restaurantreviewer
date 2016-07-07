@@ -1,12 +1,12 @@
 <header><acme-navbar></acme-navbar></header>
-<main>
 <main class="container">
   <div class="jumbotron">
     <h1 tabindex="0">{{restaurant.restaurantDetails.name}}</h1>
     <rating-radio ratingvalue="restaurant.rating" readonly="true" tabindex="0"></rating-radio>
     <div class="sectionhead">
       <h2>Hours:</h2>
-      <p ng-repeat="hours in restaurant.restaurantDetails.hours.timeframes">{{hours.days}} <time>{{hours.open[0].renderedTime}}</time></p>
+      <p ng-repeat="hours in restaurant.restaurantDetails.hours.timeframes" ng-if="restaurant.restaurantDetails.hours">{{hours.days}}&nbsp;<time>{{hours.open[0].renderedTime}}</time></p>
+      <p ng-if="!restaurant.restaurantDetails.hours">Opening hours not provided, please call the restaurant</p>
       <h2>Address:</h2>
     <address>
       {{restaurant.restaurantDetails.location.address}}, {{restaurant.restaurantDetails.location.crossStreet}}<br>
@@ -58,5 +58,4 @@
              ng-disabled="reviewForm.$invalid || !reviewForm.$dirty">Submit</button>
     </form>
   </div>
-  </main>
 </main>
