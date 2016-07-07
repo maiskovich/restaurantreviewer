@@ -18,7 +18,8 @@ export class DatabaseApiService {
       restaurantID: data.restaurantID,
       rating:data.rating,
       user:data.author,
-      review:data.review
+      review:data.review,
+      createdAt:(Date.now()/1000)
     });
   }
 

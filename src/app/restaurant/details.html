@@ -1,10 +1,12 @@
 <header><acme-navbar></acme-navbar></header>
 <main>
-<div class="container">
+<main class="container">
   <div class="jumbotron">
     <h1 tabindex="0">{{restaurant.restaurantDetails.name}}</h1>
     <rating-radio ratingvalue="restaurant.rating" readonly="true" tabindex="0"></rating-radio>
-    <div class="sectionhead" tabindex="0">
+    <div class="sectionhead">
+      <h2>Hours:</h2>
+      <p ng-repeat="hours in restaurant.restaurantDetails.hours.timeframes">{{hours.days}} <time>{{hours.open[0].renderedTime}}</time></p>
       <h2>Address:</h2>
     <address>
       {{restaurant.restaurantDetails.location.address}}, {{restaurant.restaurantDetails.location.crossStreet}}<br>
@@ -20,7 +22,7 @@
         <div ng-repeat="tip in restaurant.restaurantDetails.tips.groups[0].items.slice(((restaurant.currentPage-1)*restaurant.itemsPerPage), ((restaurant.currentPage)*restaurant.itemsPerPage))" tabindex="0">
           <div class="clearfix" ng-if="$index % 2== 0"></div>
           <div class="panel panel-default">
-          <div class="panel-heading">{{tip.user.firstName}}{{tip.firstName}} {{tip.user.lastName}}</div>
+          <div class="panel-heading">{{tip.user.firstName}}{{tip.firstName}} {{tip.user.lastName}}  <time class="dateComment">{{tip.createdAt* 1000 | date:'medium':'-0300'}}</time></div>
           <div class="panel-body">
             {{tip.text}}
           </div>
@@ -56,5 +58,5 @@
              ng-disabled="reviewForm.$invalid || !reviewForm.$dirty">Submit</button>
     </form>
   </div>
-  </div>
+  </main>
 </main>

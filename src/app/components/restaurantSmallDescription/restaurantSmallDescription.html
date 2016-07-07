@@ -1,7 +1,9 @@
+<a ui-sref="restaurantDetails({id: restaurantdata.venue.id})">
 <div class="panel panel-default">
   <div class="panel-body">
     <img alt="{{restaurantdata.venue.name}} image" ng-src="{{restaurantdata.venue.photos.groups[0].items[0].prefix+'300x300'+restaurantdata.venue.photos.groups[0].items[0].suffix}}"  class="img-responsive">
   </div>
   <div class="panel-footer">{{restaurantdata.venue.name}}<br><rating-radio ratingvalue="restaurantdata.venue.rating" readonly="true"></rating-radio></div>
 </div>
+</a>
 

@@ -37,7 +37,10 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
   opacity: 1;
   background: rgb(245, 245, 245);
 }
-
+.dateComment{
+  float:right;
+  color:#00578c;
+}
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

@@ -12,6 +12,7 @@ export class RestaurantController {
   getRestaurantDetails(){
       this.restaurantApi.getRestaurantDetails(this.restaurantID).get().$promise.then((data)=> {
         this.restaurantDetails=data.response.venue;
+        console.log(this.restaurantDetails);
         let functionScope=this;
         let dataBaseRating=0;
         let dataBaseNumberRating=0;
@@ -23,7 +24,8 @@ export class RestaurantController {
               functionScope.restaurantDetails.tips.groups[0].items.unshift({
                 rating: message.rating,
                 firstName:message.user,
-                text: message.review
+                text: message.review,
+                createdAt: message.createdAt
               });
               dataBaseRating+=message.rating;
               dataBaseNumberRating++;
